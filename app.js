@@ -7,7 +7,14 @@ const       express           = require("express"),
             expressSanitizer  = require("express-sanitizer"),
             methodOverride    = require("method-override")
 
-mongoose.connect("mongodb://localhost/blogApp",{useNewUrlParser: true, useFindAndModify: false});
+mongoose.connect("mongodb+srv://basant:engineer@cluster0-hr45z.mongodb.net/test?retryWrites=true",{useNewUrlParser: true, useFindAndModify: false})
+.then (()=>{
+    console.log("connected to DB");
+    
+})
+.catch (()=>{
+    console.log("connection to DB failed")
+})
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(expressSanitizer());
